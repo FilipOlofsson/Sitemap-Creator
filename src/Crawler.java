@@ -15,6 +15,9 @@ public class Crawler {
         this.domain = domain;
     }
     
+    /*
+        Starts the recursion process to crawl through the website.
+     */
     List<String> getLinks() {
         try {
             crawl(this.domain);
@@ -24,7 +27,9 @@ public class Crawler {
         return new ArrayList<>(new LinkedHashSet<>(visited));
     }
     
-    
+    /*
+        Recursion method to crawl the website.
+     */
     private void crawl(String website) throws IOException {
         Document site = Jsoup.connect(website).get();
         List<String> toVisit = site.select("a").eachAttr("href");

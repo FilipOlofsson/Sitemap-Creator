@@ -1,4 +1,5 @@
-import org.jsoup.Jsoup;
+import org.jsoup.HttpStatusException;
+import org.jsoup    .Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
@@ -31,15 +32,20 @@ public class Crawler {
         Recursion method to crawl the website.
      */
     private void crawl(String website) throws IOException {
-        Document site = Jsoup.connect(website).get();
-        List<String> toVisit = site.select("a").eachAttr("href");
-        visited.add(format(website));
-        for(String link : toVisit) {
-            String formattedLink = format(link);
-            if(!visited.contains(formattedLink) && formattedLink.equals("")) {
-                visited.add(formattedLink);
-                crawl(formattedLink);
+        try {
+            Document site = Jsoup.connect(website).get();
+            List<String> toVisit = site.select("a").eachAttr("href");
+            visited.add(format(website));
+            for(String link : toVisit) {
+                String formattedLink = format(link);
+                if(!visited.contains(formattedLink) && !formattedLink.equals("")) {
+                    visited.add(formattedLink);
+                    System.out.println(formattedLink);
+                    crawl(formattedLink);
+                }
             }
+        } catch (HttpStatusException e) {
+
         }
     }
     
@@ -58,7 +64,7 @@ public class Crawler {
         domain = domain.replace("https://", "");
         domain = domain.replace("www.", "");
         if(!((link.startsWith("https://") || link.startsWith("http://")) && !link.contains(domain)) && !link.contains
-                ("mailto")) {
+                ("mailto") && !link.contains("javascript:")) {
             if(!link.startsWith("/")) link = "/" + link;
             link = this.domain + link;
             return link;

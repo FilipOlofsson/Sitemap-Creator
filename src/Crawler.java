@@ -53,6 +53,7 @@ public class Crawler {
         Eg. /register.php becomes http://domain.com/register.php
         Don't touch it, it's finally working.
         https://www.simplyrecipes.com/wp-content/uploads/2013/04/baked-spaghetti-method-8-600x400.jpg
+        To be honest I really should remake this using regex, wouldn't even be too hard.
      */
     private String format(String link) {
         if(link.startsWith(this.domain)) {

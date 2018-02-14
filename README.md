@@ -12,3 +12,4 @@ List<String> list = crawler.getLinks();     // Crawler.getLinks() returns a List
 * Robots.txt?
 * Output to SQL, FTP, TEXT
 * It is currently unable to start the crawling in the directory of a webpage.
+* Webgui - IN PROGRESS

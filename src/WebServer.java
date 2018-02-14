@@ -7,11 +7,11 @@ import java.io.*;
 import java.net.BindException;
 import java.net.InetSocketAddress;
 
-public class Webserver {
+public class WebServer {
 
     HttpServer server;
 
-    Webserver(int port) {
+    WebServer(int port) {
         try {
             server = HttpServer.create(new InetSocketAddress(port), 0);
             server.createContext("/", new Handler());
@@ -24,14 +24,13 @@ public class Webserver {
     }
 
     static class Handler implements HttpHandler {
-
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             File file = new File("index.html");
-            exchange.sendResponseHeaders(200, 0);
+            exchange.sendResponseHeaders(200, 0);               // 200 is OK
             OutputStream os = exchange.getResponseBody();
             FileInputStream fs = new FileInputStream(file);
-            final byte[] buffer = new byte[0x10000];
+            final byte[] buffer = new byte[0x10000];                //  65536 or 2^16
             int count = 0;
             while ((count = fs.read(buffer)) >= 0) {
                 os.write(buffer,0,count);

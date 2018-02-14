@@ -5,7 +5,6 @@ import java.util.List;
 */
 public class crawl_test {
     public static void main(String[] args) {
-        Crawler crawler = new Crawler("https://www.reddit.com/r/leagueoflegends/");
-        List<String> = crawler.getLinks();
+        WebServer server = new WebServer(8000);
     }
 }

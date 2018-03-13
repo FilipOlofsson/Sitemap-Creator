@@ -33,14 +33,13 @@ public class Crawler {
     private void crawl(String website) throws IOException {
         try {
             Document site = Jsoup.connect(website).get();
-            List<String> toVisit = site.select("a").eachAttr("href");
+            List<String> toVisit = site.select("a").eachAttr("href");   // Contains all the links on a given web page
             visited.add(format(website));
             for(String link : toVisit) {
                 String formattedLink = format(link);
                 if(!visited.contains(formattedLink) && !formattedLink.equals("")) {
                     visited.add(formattedLink);
-                    System.out.println(formattedLink);
-                    crawl(formattedLink);
+                    crawl(formattedLink);                      // Crawl the next website in the list, continuing the recursion
                 }
             }
         } catch (HttpStatusException e) {
@@ -73,7 +72,7 @@ public class Crawler {
     }
     
     /*
-        Makes the function above a bit less spaghetti.
+        Makes the function above a bit less spaghetti-looking.
      */
     private String removeLastChar(String str) {
         return str.substring(0, str.length() - 1);

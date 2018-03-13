@@ -2,9 +2,17 @@
 
 ## USAGE
 
+#### To output using TEXT
 ```java
-Crawler crawler = new Crawler("https://www.reddit.com/");
-List<String> list = crawler.getLinks();     // Crawler.getLinks() returns a List containing all the crawled pages.
+SitemapCreator sitemapCreator = new SitemapCreator("DOMAIN", "output", "txt");
+sitemapCreator.startCrawling();
+```
+
+
+#### To output using SQL
+```java
+SitemapCreator sitemapCreator = new SitemapCreator("DOMAIN", "localhost", "root", "", "DB", "TABLE");
+sitemapCreator.startCrawling();
 ```
 
 ## TODO

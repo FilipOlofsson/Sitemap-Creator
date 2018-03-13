@@ -14,10 +14,3 @@ sitemapCreator.startCrawling();
 SitemapCreator sitemapCreator = new SitemapCreator("DOMAIN", "localhost", "root", "", "DB", "TABLE");
 sitemapCreator.startCrawling();
 ```
-
-## TODO
-
-* Robots.txt?
-* Output to SQL, FTP, TEXT
-* It is currently unable to start the crawling in the directory of a webpage.
-* Webgui - IN PROGRESS

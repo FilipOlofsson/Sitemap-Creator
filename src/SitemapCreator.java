@@ -12,7 +12,7 @@ public class SitemapCreator {
     /*
         Constructor if using SQL as output method.
      */
-    SitemapCreator(String CRAWL_DOMAIN, String SQL_SERVER, String SQL_USERNAME,
+    public SitemapCreator(String CRAWL_DOMAIN, String SQL_SERVER, String SQL_USERNAME,
                    String SQL_PASSWORD, String SQL_DATABASE, String SQL_TABLE) {
         this.crawler = new Crawler(CRAWL_DOMAIN);
         this.handler = new OutputHandler(SQL_SERVER, SQL_USERNAME, SQL_PASSWORD, SQL_DATABASE, SQL_TABLE);
@@ -23,7 +23,7 @@ public class SitemapCreator {
     /*
         Constructor if using TEXT as output method.
      */
-    SitemapCreator(String CRAWL_DOMAIN, String FILE_NAME, String FILE_EXTENSION) {
+    public SitemapCreator(String CRAWL_DOMAIN, String FILE_NAME, String FILE_EXTENSION) {
         this.crawler = new Crawler(CRAWL_DOMAIN);
         this.handler = new OutputHandler(FILE_NAME, FILE_EXTENSION);
         this.method = OutputMethod.TEXT;
@@ -33,7 +33,7 @@ public class SitemapCreator {
     /*
         Start the crawling process, also outputs using the method specified in the method variable.
      */
-    void startCrawling() {
+    public void startCrawling() {
         List<String> links = crawler.getLinks();
         for(String link : links) {
             if(method == OutputMethod.TEXT) {

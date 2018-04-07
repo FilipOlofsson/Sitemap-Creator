@@ -1,9 +1,17 @@
 import java.sql.*;
-
+/**
+ *
+ */
 public class Database {
 
     private Connection connection;
 
+    /**
+        @param database The database to connect to.
+        @param password The password to use to connect.
+        @param server The server where the database is running.
+        @param username The database username.
+     */
     Database(String server, String username, String password, String database) {
         try {
             Class.forName("com.mysql.jdbc.Driver");

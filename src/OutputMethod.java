@@ -1,3 +1,6 @@
+/**
+ *
+ */
 enum OutputMethod {
     SQL,
     TEXT

@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class Crawler {
-    
+    /**
+     *
+     */
     private List<String> visited = new LinkedList<>();
     
     private String domain;
@@ -15,7 +17,7 @@ public class Crawler {
         this.domain = domain;
     }
     
-    /*
+    /**
         Starts the recursion process to crawl through the website.
      */
     List<String> getLinks() {
@@ -27,8 +29,9 @@ public class Crawler {
         return new ArrayList<>(new LinkedHashSet<>(visited));
     }
     
-    /*
+    /**
         Recursion method to crawl the website.
+        @param website The website to crawl
      */
     private void crawl(String website) throws IOException {
         try {
@@ -47,12 +50,13 @@ public class Crawler {
         }
     }
     
-    /*
+    /**
         Really garbage method to format the link to something more workable.
         Eg. /register.php becomes http://domain.com/register.php
         Don't touch it, it's finally working.
         https://www.simplyrecipes.com/wp-content/uploads/2013/04/baked-spaghetti-method-8-600x400.jpg
         To be honest I really should remake this using regex, wouldn't even be too hard.
+     @param link Link to format
      */
     private String format(String link) {
         if(link.startsWith(this.domain)) {

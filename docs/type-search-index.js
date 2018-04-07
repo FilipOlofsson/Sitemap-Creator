@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"Crawler"},{"p":"<Unnamed>","l":"Database"},{"p":"<Unnamed>","l":"OutputException"},{"p":"<Unnamed>","l":"OutputHandler"},{"p":"<Unnamed>","l":"OutputToSQL"},{"p":"<Unnamed>","l":"OutputToTEXT"},{"p":"<Unnamed>","l":"SitemapCreator"}]

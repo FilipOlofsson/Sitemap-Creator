@@ -11,6 +11,6 @@ sitemapCreator.startCrawling();
 
 #### To output using SQL
 ```java
-SitemapCreator sitemapCreator = new SitemapCreator("DOMAIN", "localhost", "root", "", "DB", "TABLE");
+SitemapCreator sitemapCreator = new SitemapCreator("localhost", "root", "", "DB", "TABLE");
 sitemapCreator.startCrawling();
 ```

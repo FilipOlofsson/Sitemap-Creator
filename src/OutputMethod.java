@@ -1,0 +1,4 @@
+enum OutputMethod {
+    SQL,
+    TEXT
+}

@@ -3,10 +3,6 @@ import java.sql.SQLException;
 
 public class OutputHandler {
 
-    private String SQL_USERNAME;
-    private String SQL_PASSWORD;
-    private String SQL_SERVER;
-    private String SQL_DATABASE;
     private String SQL_TABLE;
 
     private String FILE_NAME;
@@ -20,10 +16,6 @@ public class OutputHandler {
         Constructor if using SQL.
      */
     OutputHandler(String SQL_SERVER, String SQL_USERNAME, String SQL_PASSWORD, String SQL_DATABASE, String SQL_TABLE) {
-        this.SQL_SERVER = SQL_SERVER;
-        this.SQL_USERNAME = SQL_USERNAME;
-        this.SQL_PASSWORD = SQL_PASSWORD;
-        this.SQL_DATABASE = SQL_DATABASE;
         this.SQL_TABLE = SQL_TABLE;
         this.METHOD = OutputMethod.SQL;
         database = new Database(SQL_SERVER, SQL_USERNAME, SQL_PASSWORD, SQL_DATABASE);
@@ -70,8 +62,4 @@ public class OutputHandler {
 
     }
 
-}
-enum OutputMethod {
-    SQL,
-    TEXT;
 }
